@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /demo
+
+# Optional crawl-delay for Bing and some bots (Google ignores this directive)
+User-agent: bingbot
+Crawl-delay: 5
+
+Sitemap: https://funs.cool/sitemap.xml
+
+

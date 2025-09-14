@@ -1,0 +1,174 @@
+Web Design, CSS, and SEO Rules — v0.1.1
+Reference: https://helloo.work/ (used as visual/structural inspiration; our site is US‑English)
+
+1) Project & Content Language
+- Site language: en-US (American English). Spelling and punctuation follow US conventions.
+- Tone: professional, clear, benefit-focused; grade 7–9 readability; active voice; concise headings.
+- Each page must have one H1. Subsections use H2/H3 in order (no skipping levels).
+
+2) CSS Architecture
+- Method: BEM for components (block__element--modifier). State classes use is-* (e.g., is-active, is-disabled).
+- Utility classes prefixed with u- (e.g., u-hidden, u-visually-hidden, u-text-center, u-max-w-xxl).
+- Avoid ID selectors for styling. Avoid !important except for u-utilities and accessibility fixes.
+- Encapsulate component styles under a block root. Do not style raw tags globally beyond resets.
+- Prefer CSS Custom Properties (design tokens). No inline style attributes except dynamic sizes in rare cases.
+
+3) Design Tokens (CSS Custom Properties)
+- Define base (raw) tokens and semantic tokens. Base tokens never change per theme; semantic tokens map to base.
+- Token naming: --color-*, --space-*, --font-*, --radius-*, --shadow-*, --z-*, --motion-*
+
+3.1) Color Tokens (WCAG AA contrast ≥ 4.5:1 for body text)
+:root {
+  /* Brand */
+  --color-brand-50:  #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9; /* Primary */
+  --color-brand-800: #5b21b6;
+
+  /* Neutrals */
+  --color-gray-0:   #ffffff;
+  --color-gray-50:  #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-900: #0b1220; /* Body text */
+
+  /* Feedback */
+  --color-success-600: #16a34a;
+  --color-warning-600: #d97706;
+  --color-danger-600:  #dc2626;
+
+  /* Semantic */
+  --color-bg:           var(--color-gray-0);
+  --color-bg-muted:     var(--color-gray-50);
+  --color-surface:      #ffffff;
+  --color-border:       var(--color-gray-200);
+  --color-text:         var(--color-gray-900);
+  --color-text-muted:   var(--color-gray-700);
+  --color-link:         var(--color-brand-700);
+  --color-link-hover:   var(--color-brand-800);
+  --color-primary:      var(--color-brand-700);
+  --color-primary-ink:  #ffffff;
+  --color-accent:       #0ea5e9;
+}
+
+/* Focus ring (visible, accessible) */
+:root {
+  --focus-ring: 0 0 0 3px rgba(109, 40, 217, 0.35);
+}
+
+3.2) Typography Tokens
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Size scale (fluid-friendly via clamp in components) */
+  --font-size-100: 0.875rem;  /* 14px */
+  --font-size-200: 1rem;      /* 16px, body minimum */
+  --font-size-300: 1.125rem;  /* 18px */
+  --font-size-400: 1.25rem;   /* 20px */
+  --font-size-500: 1.5rem;    /* 24px */
+  --font-size-600: 1.875rem;  /* 30px */
+  --font-size-700: 2.25rem;   /* 36px */
+  --font-size-800: 3rem;      /* 48px */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --lettertracking-tight: -0.01em;
+}
+
+3.3) Spacing Tokens (4px base)
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+}
+
+3.4) Radius & Shadow & Z-Index
+:root {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.12);
+  --z-nav: 100;
+  --z-overlay: 900;
+  --z-modal: 1000;
+}
+
+3.5) Motion Tokens (respect prefers-reduced-motion)
+:root {
+  --motion-duration-1: 120ms;
+  --motion-duration-2: 200ms;
+  --motion-duration-3: 320ms;
+  --motion-ease-standard: cubic-bezier(.2,.8,.2,1);
+  --motion-ease-emphasized: cubic-bezier(.2,.0,0,1);
+}
+
+4) Layout Grid & Breakpoints
+- Container max width: 1200px (content), 1440px (full-bleed visuals). Safe gutters: 16px mobile, 24px tablet, 32px desktop.
+- Columns: 12-col grid on ≥ md; stacked on < md.
+- Breakpoints: xs 0, sm 480px, md 768px, lg 1024px, xl 1280px, xxl 1536px.
+- Media queries: use min-width (mobile-first) only.
+
+5) Components Baseline
+- Buttons: .btn (primary | secondary | ghost). Sizes: sm, md, lg. Min hit area 44x44px. Focus ring visible. Disabled uses reduced opacity and no hover motion.
+- Links: underline on hover/focus; color uses --color-link / --color-link-hover. External links use rel="noopener".
+- Cards: .card with --radius-md and --shadow-sm; hover elevates to --shadow-md with subtle translateY(-2px).
+- Navbar: sticky on scroll; backdrop blur optional; contrast ratio >= 3:1 against content below when sticky.
+- Forms: min 16px font-size; label+input association; visible error text; keyboard navigable.
+- Hero section: min 60vh; headline uses clamp between --font-size-700 and --font-size-800.
+
+6) Accessibility (A11y)
+- Color contrast: body text/interactive >= 4.5:1; large headlines >= 3:1. Verify states (hover, focus, disabled).
+- Focus: Always visible. Use box-shadow: var(--focus-ring). Do not remove outlines without replacement.
+- Motion: Provide motion-reduced variants; avoid parallax for users with reduced motion.
+- Keyboard: All interactive elements tab-order logical; menus and dialogs trap focus correctly.
+- Images: Always provide alt; decorative images use empty alt. Do not put text inside images.
+
+7) SEO Baseline (On-page)
+- Title: 40–60 chars. Pattern: {Page Title} — {Brand}. H1 matches search intent.
+- Meta description: 150–160 chars; unique per page; action-oriented.
+- Canonical link required. One H1 per page.
+- Open Graph & Twitter Card tags present on all indexable pages (og:title, og:description, og:image 1200x630, twitter:card summary_large_image).
+- JSON-LD: Organization, WebSite+SearchAction on home; Article on blog posts; BreadcrumbList on inner pages.
+- Images: descriptive file names (kebab-case); width/height attributes; lazyload non-critical. Provide WebP/AVIF with fallbacks.
+- Sitemap.xml, robots.txt present. Nofollow on untrusted outbound links.
+
+8) Performance Budgets
+- Total CSS ≤ 120KB uncompressed across the site; critical CSS inlined ≤ 20KB.
+- LCP ≤ 2.5s on 4G; CLS < 0.1; INP ≤ 200ms.
+- Fonts: use swap; preload primary text font; limit to 2 weights for body; variable fonts preferred.
+- Images: serve responsive sizes (srcset, sizes). Use AVIF/WebP first. No oversized images.
+
+9) Content Style (US-English)
+- Benefit-first headings; concrete outcomes; avoid jargon.
+- Numbers and claims link to sources or case studies.
+- Microcopy for CTAs is action-oriented (e.g., "Book a demo", "Get a quote").
+
+10) File/Code Quality
+- No heavy animation libraries by default. Prefer CSS for simple animations.
+- No inline SVG with massive path data in HTML; use external SVG or sprite.
+- Use clamp() for fluid typography where appropriate.
+- Respect user’s color scheme if dark mode added; not required for v0.
+
+11) Analytics & Consent
+- Use a consent banner where required. Defer analytics until consent. Use gtag or privacy-friendly alternative with anonymized IP.
+
+12) Example Focus & Helpers
+.u-visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+.u-container { max-width: 1200px; margin-inline: auto; padding-inline: 16px; }
+
+13) Versioning
+- This ruleset: v0.1.1. Update on any material visual/SEO rule change.
+
+

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Build on Telegram with funs.cool</title>
+    <link rel="canonical" href="https://funs.cool/contact" />
+    <meta name="description" content="Start your Web3 project on Telegram. Reach us via Telegram or email. Share your brief and our solutions architect will schedule a 30-minute consult." />
+    <meta name="theme-color" content="#6d28d9" />
+    <meta property="og:title" content="Contact — Build on Telegram with funs.cool" />
+    <meta property="og:description" content="Start your Web3 project on Telegram. Reach us via Telegram or email. Share your brief and our solutions architect will schedule a 30-minute consult." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://funs.cool/contact" />
+    <meta property="og:image" content="https://funs.cool/assets/brand/og-default-1200x630.webp" />
+    <meta property="og:locale" content="en_US" />
+    <meta http-equiv="content-language" content="en-US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="mask-icon" href="/assets/brand/mask-icon.svg" color="#6d28d9" />
+    <link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon-180.png" />
+    <link rel="manifest" href="/assets/brand/manifest.webmanifest" />
+    <link rel="preload" href="/assets/css/site.css" as="style" />
+    <link rel="stylesheet" href="/assets/css/site.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact — Build on Telegram with funs.cool",
+      "url": "https://funs.cool/contact",
+      "about": {
+        "@type": "Organization",
+        "name": "funs.cool",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "availableLanguage": ["English"],
+          "areaServed": "US",
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          }
+        }
+      }
+    }
+    </script>
+    <style>
+      .nav { position: sticky; top: 0; z-index: 100; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: none; }
+      .nav__inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+      .nav__brand { color: #fff; font-weight: 800; text-decoration: none; letter-spacing: .2px; }
+      .section { position: relative; padding: 96px 0; }
+      .grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+      @media (min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
+      .panel { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); padding: 20px; color: #fff; backdrop-filter: blur(4px); }
+      label { display: block; font-weight: 600; margin: 12px 0 6px; }
+      input, textarea, select { width: 100%; font: inherit; font-size: 1rem; color: #0b1220; background: #fff; border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 12px 14px; }
+      textarea { min-height: 160px; resize: vertical; }
+      .meta { color: rgba(255,255,255,.9); }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="u-container nav__inner">
+        <a class="nav__brand" href="/">funs.cool</a>
+        <nav aria-label="Primary">
+          <a class="btn btn--ghost" href="/contact.html" aria-current="page">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section illustra" aria-labelledby="contact-title">
+        <div class="illustra__layer illustra__layer--grid"></div>
+        <div class="illustra__layer illustra__layer--bubbles"></div>
+        <div class="u-container">
+          <h1 id="contact-title" class="demo-hero__title text-reveal">Let's Build Together</h1>
+          <p class="meta">Start the conversation about your next big project. We’ll bring your vision to life on Telegram.</p>
+          <div class="grid">
+            <aside class="panel" aria-labelledby="info-title">
+              <h2 id="info-title" class="section__title">Contact Information</h2>
+              <p><strong>Preferred Channel | Telegram:</strong> @YourStudio_Contact</p>
+              <p><strong>Email:</strong> <a class="btn btn--ghost" href="mailto:service@funs.cool">service@funs.cool</a></p>
+              <p><strong>Availability:</strong> Monday – Friday, 9:00 AM – 5:00 PM (PST)</p>
+            </aside>
+            <section class="panel" aria-labelledby="form-title">
+              <h2 id="form-title" class="section__title">Send Us Your Project Brief</h2>
+              <form method="post" action="https://formspree.io/f/meoldnap" target="_blank">
+                <label for="name">Your Name / Company Name</label>
+                <input id="name" name="name" type="text" required />
+
+                <label for="contact">Your Telegram Handle or Email (for our reply)</label>
+                <input id="contact" name="contact" type="text" required />
+
+                <label for="overview">Project Overview</label>
+                <textarea id="overview" name="overview" placeholder="Please provide as much detail as possible: describe your core concept, target audience, key features, competitive landscape, and your expected timeline or roadmap." required></textarea>
+
+                <input type="hidden" name="_subject" value="New project brief from funs.cool" />
+                <input type="hidden" name="_replyto" value="service@funs.cool" />
+                <input type="hidden" name="_next" value="https://funs.cool/contact?sent=1" />
+                <div style="margin-top:16px"><button class="btn btn--primary" type="submit">Submit Project Brief</button></div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer illustra">
+      <div class="illustra__layer illustra__layer--grid"></div>
+      <div class="u-container">
+        <p>© <span id="y"></span> <a class="brand" href="/" aria-label="funs dot cool"><span class="brand__f">funs</span><span class="brand__dot" aria-hidden="true"></span><span class="brand__c">cool</span></a> · <a href="/">Home</a></p>
+      </div>
+    </footer>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </body>
+  </html>
+
+

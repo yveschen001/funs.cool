@@ -19,7 +19,7 @@
     <link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16" type="image/png" />
     <link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon-180.png" />
-    <link rel="manifest" href="/assets/brand/manifest.webmanifest" />
+    <link rel="manifest" href="/assets/brand/manifest.webmanifest?v=2" />
     <link rel="preload" href="/assets/css/site.css" as="style" />
     <link rel="stylesheet" href="/assets/css/site.css" />
     <style>
@@ -29,6 +29,18 @@
     </style>
   </head>
   <body>
+    <header class="nav">
+      <div class="u-container nav__inner">
+        <a class="nav__brand brand" href="/" aria-label="funs dot cool">
+          <span class="brand__f">funs</span>
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__c">cool</span>
+        </a>
+        <nav aria-label="Primary">
+          <a class="btn btn--ghost" href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
     <section class="demo-hero illustra">
       <div class="illustra__layer illustra__layer--grid"></div>
       <div class="illustra__layer illustra__layer--orbits"></div>
@@ -43,6 +55,14 @@
         <a class="btn btn--ghost" href="#">See How It Works</a>
       </div>
     </section>
+
+    <footer class="footer illustra">
+      <div class="illustra__layer illustra__layer--grid"></div>
+      <div class="u-container">
+        <p>© <span id="y"></span> <a class="brand" href="/" aria-label="funs dot cool"><span class="brand__f">funs</span><span class="brand__dot" aria-hidden="true"></span><span class="brand__c">cool</span></a> · <a href="/contact.html">Contact</a></p>
+      </div>
+    </footer>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </body>
   </html>
 
